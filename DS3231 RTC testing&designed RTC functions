@@ -1,0 +1,86 @@
+                    
+//****************************************************************************************
+// USER PROGRAMMING STARTS HERE
+//****************************************************************************************
+//      *** No error checking is done so respect the format and value ranges ***
+//
+// Section 1 - clock
+// SET_CLOCK YES/NO if Yes than values in section 1 will be written to the clock
+#define SET_CLOCK NO        // YES/NO       
+#define SECONDS 0           // 0-59
+#define MINUTES 0           // 0-59
+// if CLOCK24 is YES than AMPM is skipped
+#define CLOCK24 NO          // YES/NO for 24/12 if NO set AMPM
+#define AMPM PM             // AM/PM AM=0 PM=1 (will not have effect if CLOCK24 is YES)
+#define HOURS 1             // 0-23 if Clock is 24 or 1-12 if Clock is 12h
+#define DAY 7               // 1-7 1=Sunday
+#define DATE 1              // Day of the Month 1-31
+#define MONTH 1             // 1-12
+#define YEAR 16             // 00-99
+//
+// Section 2 - Alarm #1
+// SET_ALARM1 YES/NO if Yes than all enabled values in section 2 will be written to the clock
+// after setting values - alarm #1 must be enabled in Section 4            
+#define SET_ALARM1  NO      // YES/NO 
+#define A1SECOND 0          // 00-59
+#define A1MINUTE 0          // 00-59
+// if A1CLOCK24 is YES than A1AMPM is skipped
+#define A1CLOCK24 YES       // YES/NO for 24/12 if NO set A1AMPM
+#define A1AMPM PM           // AM/PM AM=0 PM=1 (will not have effect if A1CLOCK24 is YES)
+#define A1HOUR 00           // 00-23 if Clock is 24 or 1-12 if Clock is 12h
+#define A1DYDT YES          // YES=Day (DoW) No=Date (DoM)
+#define A1DAYDATE 1         // If A1DYDT=YES then range is 1-7 (DoW)/ If NO then range is (1-31 DoM)
+#define A1MASK  3           // 0-4 as described below
+// 4 = Alarm once per second
+// 3 = Alarm when seconds match
+// 2 = Alarm when minutes and seconds match
+// 1 = Alarm when hours, minutes and seconds match
+// NOTE the next two depend on A1DYDT
+// 0 = If A1DYDT=NO then Alarm when date, hours, minutes and seconds match 
+//     If A1DYDT=Yes then Alarm when day, hours, minutes and seconds match    
+//         
+// Section 3 - Alarm #2
+// SET_ALARM2 YES/NO if Yes than all enabled values in section 3 will be written to the clock
+// after setting values - alarm #2 must be enabled in Section 4      
+#define SET_ALARM2 NO       // YES/NO             
+#define A2MINUTE 0          // 00-59
+// if A2CLOCK24 is YES then A2AMPM is skipped
+#define A2CLOCK24 YES       // YES/NO for 24/12 if NO set A1AMPM
+#define A2AMPM PM           // AM/PM AM=0 PM=1 (will not have effect if A2CLOCK24 is YES)
+#define A2HOUR 00           // 00-23 if Clock is 24 or 1-12 if Clock is 12h
+#define A2DYDT YES          // YES=Day (DoW) No=Date (DoM)
+#define A2DAYDATE 1         // If A2DYDT=YES then range is 1-7 (DoW)/ If NO then range is (1-31 DoM)
+#define A2MASK  0           // 0-3 as described below
+// 3 = Alarm once per minute (00 seconds of every minute)
+// 2 = Alarm when minutes match
+// 1 = Alarm when hours, minutes match
+// NOTE the next two depend on A2DYDT
+// 0 = If A2DYDT=NO then Alarm when date, hours and minutes match 
+//     If A2DYDT=Yes then Alarm when day, hours and minutes match    
+//         
+// Section 4 - Control
+#define EOSCENABLE YES      // YES/NO if YES, enables EOSC If NO, it is skipped
+#define EOSCDISABLE NO      // YES/NO if YES disable EOSC If NO, it is skipped 
+                            // EOSC Should always be enabled to keep time using a battery
+#define ENABLE32KHZ NO      // YES/NO Enable 32KHZ output pin signal
+#define DISABLE32KHZ YES    // YES/NO Disable 32KHZ output pin signal  
+#define ENABLEBBSQW NO      // YES/NO Enable BBSQW output pin signal [battery backed] when INTC=0   
+#define DISABLEBBSQW YES    // YES/NO Disable BBSQW output pin signal [battery backed] when INTC=0   
+#define CLEARA1F NO         // YES/NO Clears the Alarm 1 interrupt flag                            
+#define CLEARA2F NO         // YES/NO Clears the Alarm 2 interrupt flag  
+#define INTCNINT YES        // YES/NO SETS the INT/SQW pin to interrupt output   
+#define INTCNSQW NO         // YES/NO Sets the INT/SQW pin to square wave output 
+#define A1ENABLE NO         // YES/NO if YES Alarm 1 interrupts are enabled, if NO disabled     
+#define A2ENABLE NO         // YES/NO if YES Alarm 2 interrupts are enabled, if NO disabled         
+// Miscellaneous
+#define SET_AGING NO        // YES/NO sets aging offset defined below
+#define AGINGOFFSET 0       // range is -127 to +127 Positive values slow the clock (see data sheet)
+#define REQCONV NO          // YES/NO if Yes, requests a temperature conversion
+#define CLEAROSF NO         // YES/NO if Yes, resets the OSF flag. If no then no action
+//
+#define SCNUPDATE 20000     // Screen update frequency in ms 
+//****************************************************************************************
+// USER PROGRAMMING ENDS HERE
+//****************************************************************************************
+
+                  
